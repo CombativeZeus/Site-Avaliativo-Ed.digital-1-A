@@ -1,1 +1,32 @@
+/* Adicione estas classes ao seu CSS original */
 
+.pokemon-img {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.card:hover .pokemon-img {
+    transform: scale(1.1);
+}
+
+.type-badge {
+    display: inline-block;
+    background: var(--bg-color);
+    padding: 2px 10px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+/* Melhoria no scroll suave para navegadores antigos */
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+}
+
+/* Ajuste no layout do grid para evitar saltos (layout shift) */
+.grid-container {
+    min-height: 400px;
+}
