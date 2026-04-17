@@ -1,0 +1,126 @@
+/* --- CONFIGURAÇÕES GLOBAIS E VARIÁVEIS --- */
+:root {
+    --primary-color: #ef5350;
+    --secondary-color: #3b4cca;
+    --bg-color: #f4f4f4;
+    --text-color: #333;
+    --white: #ffffff;
+    --radius: 12px;
+    --spacing: 1.5rem;
+    --transition: all 0.3s ease;
+}
+
+/* --- MODO ALTO CONTRASTE --- */
+body.high-contrast {
+    --primary-color: #ffff00;
+    --secondary-color: #ffffff;
+    --bg-color: #000000;
+    --text-color: #ffffff;
+    --white: #000000;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; scroll-behavior: smooth; }
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    transition: var(--transition);
+}
+
+/* --- ACESSIBILIDADE --- */
+.accessibility-bar {
+    background: #222;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.accessibility-bar button {
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 4px;
+    border: 1px solid #fff;
+    background: transparent;
+    color: white;
+}
+
+/* --- LAYOUT GRID & FLEXBOX --- */
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background: var(--primary-color);
+    color: white;
+}
+
+header ul { display: flex; list-style: none; gap: 20px; }
+
+/* Grid de Pokémon - Altere o columns aqui para mudar o layout */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing);
+    padding: var(--spacing) 5%;
+}
+
+/* --- COMPONENTES --- */
+.card {
+    background: var(--white);
+    padding: var(--spacing);
+    border-radius: var(--radius);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    text-align: center;
+    border: 2px solid var(--primary-color);
+}
+
+.accordion-item {
+    background: var(--white);
+    margin: 10px 5%;
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+
+.accordion-header {
+    width: 100%;
+    padding: 1rem;
+    text-align: left;
+    background: var(--secondary-color);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.accordion-content {
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.accordion-content.active {
+    padding: 1rem;
+    max-height: 200px;
+}
+
+/* --- ANIMAÇÕES --- */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+button:focus {
+    outline: 3px solid var(--secondary-color);
+    outline-offset: 2px;
+}
